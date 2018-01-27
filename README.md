@@ -5,4 +5,4 @@
  - Data source: https://fred.stlouisfed.org/series/SP500
  - scala version: 2.11.12
  - spark version 2.2.1
- - sbt version 0.13.16
+ - sbt version 0.14.5
