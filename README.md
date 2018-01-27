@@ -6,3 +6,13 @@
  - scala version: 2.11.12
  - spark version 2.2.1
  - sbt version 0.14.5
+
+### How to run it
+```bash
+sbt assembly
+spark-submit --class \
+"com.github.dyf102.sp500analysis.Main" \
+--master local --deploy-mode client --driver-memory 512M \
+--executor-memory 512M  <path-to-fat-jar>
+```
+
