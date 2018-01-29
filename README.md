@@ -19,4 +19,12 @@ spark-submit --class \
 we want to find the interval value x that 90% of the change percentage of SP500 index fall within.
 The change percentage is defined as ((today_SP500) - (last_SP500)) / last_SP500.  
 
+### Step
+- Load the csv file to a DataFrame with numeric data cleanup
+- Compute the absolute value of changed percent than last close day by using *lag* function after sorted by date ascantly.
+- Use either build-in percent_rank function or order by the percentage and take *total\*range(0.9 for example) rows* 
+- Get the maximum of percent changed after out-of-range rows are chopped off 
 
+### Result
+About 0.0143072
+Conclusion: the 90% of absolute values of change percent falls into [-0.0143072, 0.0143072]
