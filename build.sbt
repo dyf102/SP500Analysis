@@ -9,7 +9,6 @@ libraryDependencies ++= Seq(
   "org.apache.spark" % "spark-core_2.11" % "2.2.1" % "provided",
   "org.apache.spark" %% "spark-sql" % "2.2.1" % "provided"
 )
-
 assemblyMergeStrategy in assembly := {
   case PathList("com",   "esotericsoftware", xs @ _*) => MergeStrategy.last
   case PathList("com",   "squareup", xs @ _*) => MergeStrategy.last

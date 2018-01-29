@@ -11,10 +11,12 @@ object Main {
   val logger = Logger.getLogger(AppName)
   logger.setLevel(Level.DEBUG)
   val range: Double = 0.9
-  val filePath = "./SP500.csv"
+
+  val filePath = "./SP500.csv" // or in HDFS "hdfs:///warehouse/SP500.csv"
 
   def main(args: Array[String]): Unit = {
     val spark: SparkSession = getSparkSession(AppName)
+    spark.sparkContext.setLogLevel("ERROR")   //stop info log from spark console
     import spark.implicits._
     // read from csv file
     val df = spark
@@ -37,8 +39,8 @@ object Main {
       .selectExpr("abs(SP500 - yesterday_SP500) / yesterday_SP500 AS change_percentage")
       .cache() // reused result
     // do the calculation
-    println(getResultByPercentRank(lagDf))
-    println(getResultBySort(lagDf))
+    println(getResultByPercentRank(lagDf)) //method 1
+    println(getResultBySort(lagDf)) //method 2
 
   }
 
