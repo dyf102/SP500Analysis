@@ -1,6 +1,7 @@
 ## S&P 500 Analysis
  the change of S&P 500 is defined as the percentage of index change compared to the previous closing index
  
+ ### Prerequisite
  - Data source: https://fred.stlouisfed.org/series/SP500
  - scala version: 2.11.12
  - spark version: 2.2.1
@@ -26,5 +27,7 @@ The change percentage is defined as ((today_SP500) - (last_SP500)) / last_SP500.
 - Get the maximum of percent changed after out-of-range rows are chopped off 
 
 ### Result
-About 0.0143072
-Conclusion: the 90% of absolute values of change percent falls into [-0.0143072, 0.0143072]
+- About 0.0143072
+
+### Conclusion 
+the 90% of absolute values of change percent falls into [-0.0143072, 0.0143072]
