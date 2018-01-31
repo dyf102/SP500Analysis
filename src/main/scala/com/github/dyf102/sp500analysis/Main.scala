@@ -7,15 +7,13 @@ import org.apache.spark.sql.functions.{lag, max, percent_rank}
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
 object Main {
-  val AppName = "Spark SP500 Range Calculation"
+  val AppName = "Spark_SP500_Range_Calculation"
   val logger = Logger.getLogger(AppName)
   logger.setLevel(Level.DEBUG)
-
 
   def main(args: Array[String]): Unit = {
     val range: Double = 0.9
     val filePath = "./SP500.csv" // or in HDFS "hdfs:///warehouse/SP500.csv"
-
 
     // read from csv file
     val df = readCSVFile(filePath)
@@ -25,8 +23,8 @@ object Main {
     // do the calculation
     println(getResultByPercentRank(lagDf, range)) //method 1
     println(getResultBySort(lagDf, range)) //method 2
-
   }
+
   def readCSVFile(filePath:String):DataFrame = {
     val spark = SparkSession.builder().getOrCreate()
     spark
