@@ -9,7 +9,7 @@
 
 ### How to run it
 ```bash
-sbt assembly
+sbt assembly // or sbt test
 spark-submit --class \
 "com.github.dyf102.sp500analysis.Main" \
 --master local --deploy-mode client --driver-memory 512M \
